@@ -1,0 +1,145 @@
+/ui and console design/
+#include <stdio.h>
+#include <stdlib.h>
+
+/* Color codes used to make console output more readable */
+#define RESET   "\x1b[0m"
+#define RED     "\x1b[31m"
+#define GREEN   "\x1b[32m"
+#define YELLOW  "\x1b[33m"
+#define BLUE    "\x1b[34m"
+#define MAGENTA "\x1b[35m"
+#define CYAN    "\x1b[36m"
+
+/* This function prints a horizontal line for better UI layout */
+void printLine(char c, int len){
+    for(int i = 0; i < len; i++){
+        printf("%c", c);
+    }
+    printf("\n");
+}
+
+/* Main menu shown when the program starts */
+void mainMenu(){
+    printf(CYAN "\nLibrary Management System\n" RESET);
+    printLine('-',40);
+
+    printf("1. Admin Login\n");
+    printf("2. User Register\n");
+    printf("3. User Login\n");
+    printf("4. Exit\n");
+
+    printf("\nEnter your choice: ");
+}
+
+/* Menu displayed after admin logs in */
+void adminMenu(){
+    printf(CYAN "\nAdmin Panel\n" RESET);
+    printLine('-',30);
+
+    printf("1. Add Book\n");
+    printf("2. View Books\n");
+    printf("3. Search Book\n");
+    printf("4. Update Book\n");
+    printf("5. View Users\n");
+    printf("6. View Transactions\n");
+    printf("7. View Statistics\n");
+    printf("8. Logout\n");
+
+    printf("\nSelect option: ");
+}
+
+/* Menu displayed for normal users */
+void userMenu(){
+    printf(CYAN "\nUser Menu\n" RESET);
+    printLine('-',30);
+
+    printf("1. View Books\n");
+    printf("2. Search Book\n");
+    printf("3. Buy Book\n");
+    printf("4. Rent Book\n");
+    printf("5. View Cart\n");
+    printf("6. Remove From Cart\n");
+    printf("7. Checkout\n");
+    printf("8. View My Transactions\n");
+    printf("9. Generate Bill\n");
+    printf("10. Logout\n");
+
+    printf("\nSelect option: ");
+}
+
+/* Function to display books in table format */
+void displayBooks(){
+    printf("\nAvailable Books\n");
+    printLine('-',80);
+
+    printf(YELLOW "| %-4s | %-30s | %-10s | %-10s | %-5s |\n" RESET,
+           "ID","Book Name","Buy Price","Rent Price","Qty");
+
+    printLine('-',80);
+
+    printf("| %-4d | %-30s | " MAGENTA "%-10.2f" RESET " | " MAGENTA "%-10.2f" RESET " | %-5d |\n",
+           1,"C Programming",500.0,50.0,10);
+
+    printf("| %-4d | %-30s | " MAGENTA "%-10.2f" RESET " | " MAGENTA "%-10.2f" RESET " | %-5d |\n",
+           2,"Data Structures",600.0,60.0,5);
+
+    printLine('-',80);
+}
+
+/* Function to display items inside the cart */
+void displayCart(){
+    printf("\nYour Cart\n");
+    printLine('-',50);
+
+    printf(YELLOW "| %-3s | %-25s | %-5s | %-8s |\n" RESET,
+           "No","Book Name","Type","Price");
+
+    printLine('-',50);
+
+    printf("| %-3d | %-25s | %-5s | " MAGENTA "%-8.2f" RESET " |\n",
+           1,"C Programming","BUY",500.0);
+
+    printf("| %-3d | %-25s | %-5s | " MAGENTA "%-8.2f" RESET " |\n",
+           2,"Java Basics","RENT",40.0);
+
+    printLine('-',50);
+}
+
+/* Function to show a bill after checkout */
+void showBill(){
+    float total = 540;
+
+    printf("\nBill Summary\n");
+    printLine('-',60);
+
+    printf(YELLOW "| %-25s | %-15s | %-10s |\n" RESET,
+           "Book Name","Type","Price");
+
+    printLine('-',60);
+
+    printf("| %-25s | %-15s | " MAGENTA "%-10.2f" RESET " |\n",
+           "C Programming","BUY (Cash)",500.0);
+
+    printf("| %-25s | %-15s | " MAGENTA "%-10.2f" RESET " |\n",
+           "Java Basics","RENT (Card)",40.0);
+
+    printLine('-',60);
+
+    printf(GREEN "\nTotal Amount: %.2f\n" RESET,total);
+}
+
+/* Program starts from here */
+int main(){
+
+    mainMenu();
+    adminMenu();
+    userMenu();
+    displayBooks();
+    displayCart();
+    showBill();
+
+    printf("\nProgram ended.\n");
+
+    return 0;
+}
