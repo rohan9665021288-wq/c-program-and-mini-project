@@ -1,0 +1,78 @@
+UI & CONSOLE DESIGN TEST CASES
+
+1. TITLE & HEADER FORMAT
+- Title text appears in correct color (CYAN)
+- Proper spacing before and after title
+- No text overlap
+
+
+2. HORIZONTAL LINE CONSISTENCY
+- Lines use consistent characters ('-' or custom)
+- Correct length (40, 30, 80, etc.)
+- Lines align with table width
+
+
+3. MENU ALIGNMENT
+- Menu options aligned properly (1–10)
+- No shifting due to double-digit numbers
+- Equal spacing between options
+
+
+4. TEXT COLOR CONSISTENCY
+- Headers → YELLOW
+- Prices → MAGENTA
+- Titles → CYAN
+- Total → GREEN
+- Colors reset properly after each line
+
+
+5. TABLE STRUCTURE (BOOKS, CART, BILL)
+- Columns aligned using fixed width
+- Vertical separators (|) properly placed
+- Header and data rows match in width
+
+
+6. COLUMN WIDTH HANDLING
+- Book Name column fits within defined width (30 chars)
+- Overflow text breaks layout (known limitation)
+- Numeric fields remain right-aligned
+
+
+7. SPACING & PADDING
+- Proper spacing between columns
+- Uniform padding using %-format specifiers
+- No cramped or uneven text
+
+
+8. SECTION SEPARATION
+- Clear gaps between:
+  - Menus
+  - Tables
+  - Bill section
+- Improves readability
+
+
+9. CONSISTENT TABLE WIDTH
+- Borders match content width exactly
+- No mismatch between header and rows
+
+
+10. NUMBER FORMATTING DISPLAY
+- Prices show exactly 2 decimal places
+- Alignment remains intact with larger numbers
+
+
+11. TERMINAL COMPATIBILITY
+- ANSI colors display correctly in supported terminals
+- Graceful fallback (readable text) if colors unsupported
+
+
+12. VISUAL FLOW
+- UI follows clear order:
+  Title → Menu → Tables → Summary
+- Easy to read without confusion
+
+
+13. CLEAN OUTPUT TERMINATION
+- Ends with "Program ended."
+- No broken formatting at end
